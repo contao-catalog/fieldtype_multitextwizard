@@ -43,11 +43,13 @@ $GLOBALS['BE_MOD']['content']['catalog']['fieldTypes']['multitextwizard'] = arra
 	'sqlDefColumn' => "text NULL",
 	'generateFieldEditor' => array(array('CatalogMultiTextWizardField', 'generateFieldEditor')),
 	'parseValue' => array(array('CatalogMultiTextWizardField', 'parseValue')),
+	'generateFilter' => array(array('CatalogMultiTextWizardField', 'generateFilter')),
 );
 
 $GLOBALS['BE_MOD']['content']['catalog']['typesMatchFields'][] = 'multitextwizard';
 $GLOBALS['BE_MOD']['content']['catalog']['typesEditFields'][] = 'multitextwizard';
 $GLOBALS['BE_MOD']['content']['catalog']['typesLinkFields'][] = 'multitextwizard';
 $GLOBALS['BE_MOD']['content']['catalog']['typesCatalogFields'][] = 'multitextwizard';
+$GLOBALS['BE_MOD']['content']['catalog']['typesFilterFields'][] = 'multitextwizard';
 
 ?>

@@ -122,5 +122,13 @@ class CatalogMultiTextWizardField extends Backend {
 				 	'html'  => $html,
 				);
 	}
+
+	public function generateFilter($field, $fieldConf, $strSearch) {
+		return array
+				(
+					 'procedure' => '(' . $field . ' LIKE ?)',
+					 'search' => '%' . $strSearch . '%',
+				);
+	}
 }
 ?>

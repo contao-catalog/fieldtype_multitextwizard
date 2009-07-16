@@ -28,12 +28,15 @@
  */
 
 // Palettes
-$GLOBALS['TL_DCA']['tl_catalog_fields']['palettes']['multitextwizard'] = 'name,description,colName,type;multiTextWizard';
+$GLOBALS['TL_DCA']['tl_catalog_fields']['palettes']['multitextwizard'] = '{title_legend},name,description,colName,type;multiTextWizard;{display_legend},insertBreak,width50';
 
 // register our fieldtype editor to the catalog Fields
 $GLOBALS['TL_DCA']['tl_catalog_fields']['fields']['multiTextWizard'] = array
 (
 	'label'         => &$GLOBALS['TL_LANG']['tl_catalog_fields']['multiTextWizard'],
+	'exclude'                 => true,
+	'search'                  => true,
+	'filter'                  => true,
 	'inputType'     => 'multitextWizard',
 	'save_callback' => array(array('tl_catalog_fields_multiTextWizard', 'onSaveColumns')),
 	'load_callback' => array(array('tl_catalog_fields_multiTextWizard', 'onLoadColumns')),
@@ -41,7 +44,7 @@ $GLOBALS['TL_DCA']['tl_catalog_fields']['fields']['multiTextWizard'] = array
 	(
 		'title' => &$GLOBALS['TL_LANG']['tl_catalog_fields']['multiTextWizard'],
 		'mandatory' => true,
-		'doNotSaveEmpty'=>true,
+		'doNotSaveEmpty' => true,
 		'columns' => 1,
 	)
 );
