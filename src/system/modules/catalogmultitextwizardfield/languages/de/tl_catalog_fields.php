@@ -1,4 +1,5 @@
 <?php
+
 /**
  * TYPOlight webCMS
  *
@@ -17,7 +18,7 @@
  * @copyright  Christian Schiffler 2009
  * @author     Christian Schiffler <c.schiffler@cyberspectrum.de>
  * @package    catalogMultiTextWizardFields
- * @license    GPL
+ * @license    LGPL
  * @filesource
  */
  

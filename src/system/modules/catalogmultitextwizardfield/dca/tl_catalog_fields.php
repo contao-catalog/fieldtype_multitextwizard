@@ -18,7 +18,7 @@
  * @copyright  Christian Schiffler 2009
  * @author     Christian Schiffler  <c.schiffler@cyberspectrum.de> 
  * @package    Catalog
- * @license    GPL 
+ * @license    LGPL 
  * @filesource
  */
 

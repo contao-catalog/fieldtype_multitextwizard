@@ -10,14 +10,14 @@
  * CSS engine, multi-language support and many more. For more information and 
  * additional TYPOlight applications like the TYPOlight MVC Framework please 
  * visit the project website http://www.typolight.org.
- *
+ * 
  * This is the catalog multitextwizardfield extension configuration file.
  *
  * PHP version 5
  * @copyright  Christian Schiffler 2009
  * @author     Christian Schiffler  <c.schiffler@cyberspectrum.de> 
- * @package    Catalog
- * @license    GPL 
+ * @package    CatalogMultiTextWizardField
+ * @license    LGPL 
  * @filesource
  */
 
