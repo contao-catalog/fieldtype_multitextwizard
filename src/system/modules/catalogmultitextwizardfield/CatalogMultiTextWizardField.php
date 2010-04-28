@@ -78,12 +78,15 @@ class CatalogMultiTextWizardField extends Backend {
 	public function encodeEntries($varValue) {
 		try {
 			$xml = new SimpleXMLElement('<data></data>');
-			foreach($varValue as $row)
+			if(is_array($varValue))
 			{
-				$xmlrow=$xml->addChild('row');
-				foreach($row as $field)
+				foreach($varValue as $row)
 				{
-					$xmlrow->addChild('entry', $field);
+					$xmlrow=$xml->addChild('row');
+					foreach($row as $field)
+					{
+						$xmlrow->addChild('entry', $field);
+					}
 				}
 			}
 			return $xml->asXML();
