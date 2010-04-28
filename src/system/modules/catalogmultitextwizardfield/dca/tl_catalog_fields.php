@@ -28,7 +28,7 @@
  */
 
 // Palettes
-$GLOBALS['TL_DCA']['tl_catalog_fields']['palettes']['multitextwizard'] = '{title_legend},name,description,colName,type;multiTextWizard;{display_legend},insertBreak,width50';
+$GLOBALS['TL_DCA']['tl_catalog_fields']['palettes']['multitextwizard'] = '{title_legend},name,description,colName,type,multiTextWizard;{display_legend},insertBreak,width50;{feedit_legend},editGroups';
 
 // register our fieldtype editor to the catalog Fields
 $GLOBALS['TL_DCA']['tl_catalog_fields']['fields']['multiTextWizard'] = array
