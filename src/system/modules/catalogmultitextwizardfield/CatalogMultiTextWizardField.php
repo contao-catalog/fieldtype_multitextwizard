@@ -105,23 +105,34 @@ class CatalogMultiTextWizardField extends Backend {
 		return serialize($this->decodeEntries($varValue));
 	}
 	
-	public function parseValue($id, $k, $raw) {
+	public function parseValue($id, $k, $raw, $blnImageLink, $objCatalog, $objModule)
+	{
 		$rows=$this->decodeEntries($raw);
-		$html = '';
-		$html .= '<table>';
-		foreach($rows as $row) {
-			$html .= '<tr>';
-			foreach($row as $field)
+		// TODO: we need a summary here, add as new field.
+		$html = '<table class="tl_multitexttable">';
+		$html .= '<thead><tr class="head">';
+		$objTable=$this->Database->prepare("SELECT tableName FROM tl_catalog_types WHERE id=?")
+							->execute($objCatalog->pid);
+		$labelcount = count($GLOBALS['TL_DCA'][$objTable->tableName]['fields'][$k]['eval']['labels']);
+		foreach($GLOBALS['TL_DCA'][$objTable->tableName]['fields'][$k]['eval']['labels'] as $f=>$label)
+		{
+			$html .= '<th class="head_'.$f.($f%2==0?' even':' odd').($f==0?' col_first':($f==$labelcount?' col_last':'')).'">' . $label . '</th>';
+		}
+		$html .= '</tr></thead><tbody>';
+		foreach($rows as $k=>$row)
+		{
+			$html .= '<tr class="row_'.$k.($k%2==0?' even':' odd').($k==0?' row_first':($k==count($rows)?' row_last':'')).'">';
+			foreach($row as $f=>$field)
 			{
-				$html .= '<td>' . $field . '</td>';
+				$html .= '<td class="col_'.$f.($f%2==0?' even':' odd').($f==0?' col_first':($f==count($row)?' col_last':'')).'">' . $field . '</td>';
 			}
 			$html .= '</tr>';
 		}
-		$html .= '</table>';
+		$html .= '</tbody></table>';
 		return array
 				(
 				 	'items'	=> $rows,
-					'values' => false,
+					'values' => $rows,
 				 	'html'  => $html,
 				);
 	}
