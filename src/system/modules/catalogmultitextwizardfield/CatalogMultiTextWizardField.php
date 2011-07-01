@@ -77,7 +77,7 @@ class CatalogMultiTextWizardField extends Backend {
 	
 	public function encodeEntries($varValue) {
 		try {
-			$xml = new SimpleXMLElement('<data></data>');
+			$xml = new SimpleXMLElement('<?xml version="1.0" encoding="utf-8" ?><data></data>');
 			if(is_array($varValue))
 			{
 				foreach($varValue as $row)
@@ -141,7 +141,7 @@ class CatalogMultiTextWizardField extends Backend {
 		return array
 				(
 					 'procedure' => '(' . $field . ' LIKE ?)',
-					 'search' => '%' . $strSearch . '%',
+					 'search' => '%' . specialchars($strSearch, ENT_COMPAT, 'UTF-8', false) . '%',
 				);
 	}
 }
